@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SpaceX designs, manufactures and launches advanced rockets and spacecraft. Independent fan-made educational clone.">
+    <title>SpaceX Clone | Starship, Falcon 9, Falcon Heavy, Dragon</title>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ==============================================
+         1. FIXED NAVIGATION BAR & OVERLAY
+         ============================================== -->
+    <header class="navbar" id="navbar">
+        <div class="navbar-container">
+            <!-- Brand Logo -->
+            <div class="logo">
+                <a href="#starship" aria-label="SpaceX Homepage">
+                    <img src="images/spacex-logo.png" alt="SpaceX Logo">
+                </a>
+            </div>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="desktop-nav" aria-label="Main Navigation">
+                <ul class="nav-links">
+                    <li><a href="#falcon9" class="nav-link">FALCON 9</a></li>
+                    <li><a href="#falcon-heavy" class="nav-link">FALCON HEAVY</a></li>
+                    <li><a href="#dragon" class="nav-link">DRAGON</a></li>
+                    <li><a href="#starship" class="nav-link">STARSHIP</a></li>
+                    <li><a href="#human-spaceflight" class="nav-link">HUMAN SPACEFLIGHT</a></li>
+                    <li><a href="#starlink" class="nav-link">STARLINK</a></li>
+                    <li><a href="#rideshare" class="nav-link" data-modal="rideshare">RIDESHARE</a></li>
+                    <li><a href="https://shop.spacex.com/" target="_blank" rel="noopener noreferrer" class="nav-link">SHOP</a></li>
+                </ul>
+            </nav>
+
+            <!-- Menu Button (Desktop & Mobile) -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="sideMenu">
+                <span class="menu-text">MENU</span>
+                <span class="hamburger">
+                    <span class="bar bar-1"></span>
+                    <span class="bar bar-2"></span>
+                    <span class="bar bar-3"></span>
+                </span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Side Slide-Out Menu Drawer -->
+    <aside class="side-menu" id="sideMenu" aria-hidden="true">
+        <div class="side-menu-header">
+            <button class="close-menu-btn" id="closeMenuBtn" aria-label="Close Navigation Menu">&times;</button>
+        </div>
+        <nav class="side-nav">
+            <ul class="side-nav-links">
+                <!-- Mobile mirrors desktop navigation links -->
+                <li class="mobile-only"><a href="#falcon9" class="side-link">FALCON 9</a></li>
+                <li class="mobile-only"><a href="#falcon-heavy" class="side-link">FALCON HEAVY</a></li>
+                <li class="mobile-only"><a href="#dragon" class="side-link">DRAGON</a></li>
+                <li class="mobile-only"><a href="#starship" class="side-link">STARSHIP</a></li>
+                <li class="mobile-only"><a href="#human-spaceflight" class="side-link">HUMAN SPACEFLIGHT</a></li>
+                <li class="mobile-only"><a href="#starlink" class="side-link">STARLINK</a></li>
+                <li class="mobile-only"><a href="#rideshare" class="side-link" data-modal="rideshare">RIDESHARE</a></li>
+                
+                <!-- Expanded SpaceX Menu Items -->
+                <li><a href="#mission" class="side-link" data-modal="mission">MISSION</a></li>
+                <li><a href="#launches" class="side-link" data-modal="launches">LAUNCHES</a></li>
+                <li><a href="#careers" class="side-link" data-modal="careers">CAREERS</a></li>
+                <li><a href="#updates" class="side-link" data-modal="updates">UPDATES</a></li>
+                <li><a href="https://shop.spacex.com/" target="_blank" rel="noopener noreferrer" class="side-link">SHOP</a></li>
+            </ul>
+        </nav>
+        <div class="side-menu-footer">
+            <p class="side-disclaimer">EDUCATIONAL FAN CLONE</p>
+        </div>
+    </aside>
+
+    <!-- Dimming Backdrop for Slide-Out Menu -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+
+    <!-- ==============================================
+         2. SECTION 1: STARSHIP HERO
+         ============================================== -->
+    <section class="section hero-section" id="starship">
+        <!-- Background Video with poster fallback -->
+        <video class="hero-video" autoplay muted loop playsinline poster="images/hero.jpg">
+            <source src="videos/hero-video.mp4" type="video/mp4">
+            Your browser does not support HTML video.
+        </video>
+
+        <!-- Dark Gradient Overlay -->
+        <div class="section-overlay"></div>
+
+        <!-- Section Content -->
+        <div class="section-content">
+            <span class="section-tag">UPCOMING TEST FLIGHT</span>
+            <h1 class="section-title">STARSHIP</h1>
+            <p class="section-desc">THE WORLD'S MOST POWERFUL ROCKET</p>
+            <div class="button-wrapper">
+                <a href="#starship-specs" class="explore-btn" data-modal="starship">
+                    <span class="btn-text">EXPLORE</span>
+                    <span class="btn-hover-fill"></span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Bouncing Scroll Down Arrow -->
+        <a href="#falcon9" class="scroll-down-btn" aria-label="Scroll to Falcon 9">
+            <svg class="scroll-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="7 10 12 15 17 10"></polyline>
+            </svg>
+        </a>
+    </section>
+
+
+    <!-- ==============================================
+         3. SECTION 2: FALCON 9
+         ============================================== -->
+    <section class="section section-falcon9" id="falcon9">
+        <div class="section-overlay"></div>
+        <div class="section-content">
+            <span class="section-tag">RECENT MISSION</span>
+            <h2 class="section-title">FALCON 9</h2>
+            <p class="section-desc">FIRST ORBITAL CLASS ROCKET CAPABLE OF REFLIGHT</p>
+            <div class="button-wrapper">
+                <a href="#falcon9-specs" class="explore-btn" data-modal="falcon9">
+                    <span class="btn-text">EXPLORE</span>
+                    <span class="btn-hover-fill"></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==============================================
+         4. SECTION 3: FALCON HEAVY
+         ============================================== -->
+    <section class="section section-falcon-heavy" id="falcon-heavy">
+        <div class="section-overlay"></div>
+        <div class="section-content">
+            <span class="section-tag">HEAVY LIFT LAUNCH VEHICLE</span>
+            <h2 class="section-title">FALCON HEAVY</h2>
+            <p class="section-desc">OVER 5 MILLION POUNDS OF THRUST AT LIFTOFF</p>
+            <div class="button-wrapper">
+                <a href="#falcon-heavy-specs" class="explore-btn" data-modal="falcon-heavy">
+                    <span class="btn-text">EXPLORE</span>
+                    <span class="btn-hover-fill"></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==============================================
+         5. SECTION 4: DRAGON
+         ============================================== -->
+    <section class="section section-dragon" id="dragon">
+        <div class="section-overlay"></div>
+        <div class="section-content">
+            <span class="section-tag">COMMERCIAL CREW &amp; CARGO</span>
+            <h2 class="section-title">DRAGON</h2>
+            <p class="section-desc">SENDING HUMANS AND CARGO TO SPACE</p>
+            <div class="button-wrapper">
+                <a href="#dragon-specs" class="explore-btn" data-modal="dragon">
+                    <span class="btn-text">EXPLORE</span>
+                    <span class="btn-hover-fill"></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==============================================
+         6. SECTION 5: HUMAN SPACEFLIGHT
+         ============================================== -->
+    <section class="section section-human-spaceflight" id="human-spaceflight">
+        <div class="section-overlay"></div>
+        <div class="section-content">
+            <span class="section-tag">CIVILIAN ASTRONAUTS</span>
+            <h2 class="section-title">HUMAN SPACEFLIGHT</h2>
+            <p class="section-desc">MAKING LIFE MULTIPLANETARY</p>
+            <div class="button-wrapper">
+                <a href="#human-spaceflight-specs" class="explore-btn" data-modal="human-spaceflight">
+                    <span class="btn-text">EXPLORE</span>
+                    <span class="btn-hover-fill"></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==============================================
+         7. SECTION 6: STARLINK
+         ============================================== -->
+    <section class="section section-starlink" id="starlink">
+        <div class="section-overlay"></div>
+        <div class="section-content">
+            <span class="section-tag">GLOBAL SATELLITE NETWORK</span>
+            <h2 class="section-title">STARLINK</h2>
+            <p class="section-desc">HIGH-SPEED INTERNET AROUND THE GLOBE</p>
+            <div class="button-wrapper">
+                <a href="#starlink-specs" class="explore-btn" data-modal="starlink">
+                    <span class="btn-text">EXPLORE</span>
+                    <span class="btn-hover-fill"></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==============================================
+         8. FOOTER SECTION
+         ============================================== -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="images/spacex-logo.png" alt="SpaceX Logo" class="footer-logo-img">
+            </div>
+
+            <!-- Footer Links -->
+            <ul class="footer-links">
+                <li><span class="copyright">SPACEX &copy; 2026</span></li>
+                <li><a href="#privacy" class="footer-link" data-modal="privacy">PRIVACY POLICY</a></li>
+                <li><a href="#suppliers" class="footer-link" data-modal="suppliers">SUPPLIERS</a></li>
+                <li><a href="#contact" class="footer-link" data-modal="contact">CONTACT</a></li>
+                <li><a href="https://twitter.com/SpaceX" target="_blank" rel="noopener noreferrer" class="footer-link">TWITTER / X</a></li>
+                <li><a href="https://www.youtube.com/spacex" target="_blank" rel="noopener noreferrer" class="footer-link">YOUTUBE</a></li>
+                <li><a href="https://www.instagram.com/spacex" target="_blank" rel="noopener noreferrer" class="footer-link">INSTAGRAM</a></li>
+                <li><a href="https://www.flickr.com/photos/spacex" target="_blank" rel="noopener noreferrer" class="footer-link">FLICKR</a></li>
+                <li><a href="https://www.linkedin.com/company/spacex" target="_blank" rel="noopener noreferrer" class="footer-link">LINKEDIN</a></li>
+            </ul>
+
+            <!-- Disclaimer Notice -->
+            <div class="footer-disclaimer">
+                <p>This website is an independent educational fan-made clone inspired by SpaceX. Not affiliated with or endorsed by Space Exploration Technologies Corp.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ==============================================
+         9. INTERACTIVE TECHNICAL SPECIFICATIONS MODAL
+         ============================================== -->
+    <div class="specs-modal" id="specsModal" aria-hidden="true" role="dialog" aria-labelledby="modalVehicleTitle">
+        <div class="specs-modal-backdrop" id="modalBackdrop"></div>
+        <div class="specs-modal-content">
+            <button class="specs-modal-close" id="modalCloseBtn" aria-label="Close Specifications Modal">&times;</button>
+            <div class="specs-header">
+                <span class="specs-tag" id="modalVehicleTag">VEHICLE OVERVIEW</span>
+                <h3 class="specs-title" id="modalVehicleTitle">STARSHIP</h3>
+                <p class="specs-desc" id="modalVehicleDesc">The world's most powerful launch vehicle ever developed, designed to carry both crew and cargo to Earth orbit, the Moon, Mars and beyond.</p>
+            </div>
+            <div class="specs-grid" id="modalVehicleGrid">
+                <!-- Dynamically filled by script.js -->
+            </div>
+            <div class="specs-footer">
+                <button class="btn-close-modal" id="modalDismissBtn">CLOSE OVERVIEW</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vanilla JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>

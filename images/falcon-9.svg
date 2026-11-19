@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <defs>
+    <!-- Sky Gradient -->
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#020409"/>
+      <stop offset="40%" stop-color="#070c18"/>
+      <stop offset="75%" stop-color="#0d1424"/>
+      <stop offset="100%" stop-color="#141a2e"/>
+    </linearGradient>
+
+    <!-- Plume Core Gradient -->
+    <linearGradient id="fireCore" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="25%" stop-color="#fff5b8"/>
+      <stop offset="60%" stop-color="#ff9900"/>
+      <stop offset="90%" stop-color="#ff3b00"/>
+      <stop offset="100%" stop-color="#801000"/>
+    </linearGradient>
+
+    <!-- Plume Glow -->
+    <radialGradient id="launchGlow" cx="50%" cy="55%" r="45%">
+      <stop offset="0%" stop-color="rgba(255, 170, 60, 0.45)"/>
+      <stop offset="35%" stop-color="rgba(255, 90, 20, 0.2)"/>
+      <stop offset="70%" stop-color="rgba(180, 40, 10, 0.06)"/>
+      <stop offset="100%" stop-color="rgba(0, 0, 0, 0)"/>
+    </radialGradient>
+
+    <!-- Smoke Glow -->
+    <radialGradient id="smokeGlow" cx="50%" cy="85%" r="50%">
+      <stop offset="0%" stop-color="rgba(255, 140, 40, 0.3)"/>
+      <stop offset="50%" stop-color="rgba(40, 45, 65, 0.25)"/>
+      <stop offset="100%" stop-color="rgba(10, 12, 18, 0)"/>
+    </radialGradient>
+
+    <!-- Rocket Shading -->
+    <linearGradient id="rocketBody" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d0d5dd"/>
+      <stop offset="40%" stop-color="#ffffff"/>
+      <stop offset="75%" stop-color="#8a94a6"/>
+      <stop offset="100%" stop-color="#3b4252"/>
+    </linearGradient>
+
+    <linearGradient id="blackInterstage" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#111317"/>
+      <stop offset="50%" stop-color="#2a2e39"/>
+      <stop offset="100%" stop-color="#0a0c10"/>
+    </linearGradient>
+
+    <!-- Filters for atmospheric blur -->
+    <filter id="blurFilter" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="40"/>
+    </filter>
+  </defs>
+
+  <!-- Deep Night Sky -->
+  <rect width="1920" height="1080" fill="url(#skyGrad)"/>
+
+  <!-- Starfield -->
+  <g fill="#ffffff" opacity="0.75">
+    <circle cx="120" cy="80" r="1.5" opacity="0.6"/>
+    <circle cx="280" cy="190" r="1" opacity="0.4"/>
+    <circle cx="450" cy="110" r="2" opacity="0.9"/>
+    <circle cx="620" cy="70" r="1" opacity="0.5"/>
+    <circle cx="810" cy="160" r="1.5" opacity="0.7"/>
+    <circle cx="1020" cy="95" r="1" opacity="0.4"/>
+    <circle cx="1230" cy="140" r="2.5" opacity="0.8"/>
+    <circle cx="1440" cy="65" r="1" opacity="0.5"/>
+    <circle cx="1680" cy="180" r="1.5" opacity="0.7"/>
+    <circle cx="1850" cy="100" r="2" opacity="0.6"/>
+    <circle cx="340" cy="320" r="1.5" opacity="0.5"/>
+    <circle cx="750" cy="280" r="1" opacity="0.3"/>
+    <circle cx="1320" cy="260" r="1.8" opacity="0.6"/>
+    <circle cx="1590" cy="340" r="1" opacity="0.4"/>
+    <circle cx="180" cy="460" r="1.2" opacity="0.5"/>
+    <circle cx="1720" cy="480" r="1.5" opacity="0.6"/>
+  </g>
+
+  <!-- Distant Launch Pad & Tower Silhouettes -->
+  <rect x="0" y="920" width="1920" height="160" fill="#04060a"/>
+  <!-- Horizon subtle water reflection -->
+  <line x1="0" y1="920" x2="1920" y2="920" stroke="#182238" stroke-width="2"/>
+  
+  <!-- Pad 39A Launch Tower Silhouette -->
+  <path d="M1250,920 L1250,600 L1270,590 L1270,550 L1275,550 L1275,920 Z" fill="#070a12"/>
+  <line x1="1250" y1="650" x2="1275" y2="650" stroke="#0f1422" stroke-width="2"/>
+  <line x1="1250" y1="720" x2="1275" y2="720" stroke="#0f1422" stroke-width="2"/>
+  <line x1="1250" y1="800" x2="1275" y2="800" stroke="#0f1422" stroke-width="2"/>
+
+  <!-- Giant Launch Light Glow -->
+  <ellipse cx="960" cy="560" rx="650" ry="420" fill="url(#launchGlow)"/>
+  <ellipse cx="960" cy="850" rx="800" ry="300" fill="url(#smokeGlow)"/>
+
+  <!-- Falcon 9 Rocket Ascending -->
+  <g transform="translate(960, 480) rotate(-14)">
+    <!-- Exhaust Plume Flames -->
+    <path d="M-14,90 C-35,160 -70,320 -15,480 C-5,530 0,580 0,620 C0,580 5,530 15,480 C70,320 35,160 14,90 Z" fill="url(#fireCore)" opacity="0.95"/>
+    <!-- Intense Inner Core -->
+    <path d="M-8,90 C-18,150 -25,280 -6,380 C0,420 0,440 0,450 C0,440 0,420 6,380 C25,280 18,150 8,90 Z" fill="#ffffff"/>
+    
+    <!-- Shock Diamonds -->
+    <ellipse cx="0" cy="180" rx="7" ry="16" fill="#ffffff" opacity="0.9"/>
+    <ellipse cx="0" cy="250" rx="6" ry="14" fill="#ffffff" opacity="0.8"/>
+    <ellipse cx="0" cy="330" rx="5" ry="12" fill="#fff5cc" opacity="0.7"/>
+
+    <!-- Rocket Booster Base (Octaweb / Engines) -->
+    <rect x="-13" y="78" width="26" height="12" rx="2" fill="#1b1c20"/>
+
+    <!-- First Stage Rocket Core -->
+    <rect x="-13" y="-190" width="26" height="268" fill="url(#rocketBody)"/>
+    
+    <!-- Grid Fins deployed -->
+    <rect x="-24" y="-180" width="11" height="5" fill="#2d3139"/>
+    <rect x="13" y="-180" width="11" height="5" fill="#2d3139"/>
+
+    <!-- Interstage (Black Carbon Composite Ring) -->
+    <rect x="-13" y="-235" width="26" height="45" fill="url(#blackInterstage)"/>
+
+    <!-- Second Stage -->
+    <rect x="-13" y="-310" width="26" height="75" fill="url(#rocketBody)"/>
+
+    <!-- Payload Fairing (Cone Nose) -->
+    <path d="M-13,-310 C-13,-360 -7,-395 0,-420 C7,-395 13,-360 13,-310 Z" fill="url(#rocketBody)"/>
+
+    <!-- SpaceX Vertical Logo Line Art on Rocket Body -->
+    <line x1="0" y1="-80" x2="0" y2="40" stroke="#000000" stroke-width="2.5" opacity="0.6"/>
+  </g>
+
+  <!-- Atmospheric Steam & Night Cloud Glow -->
+  <ellipse cx="980" cy="940" rx="550" ry="140" fill="url(#smokeGlow)" filter="url(#blurFilter)"/>
+</svg>

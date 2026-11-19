@@ -1,0 +1,893 @@
+/* ==========================================================================
+   SpaceX Website Clone - Master Stylesheet
+   Pure CSS3 with Modern Responsive Design & Aerospace Visual Styling
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS Reset & Base Variables
+   -------------------------------------------------------------------------- */
+:root {
+    --bg-black: #000000;
+    --text-white: #ffffff;
+    --text-muted: rgba(255, 255, 255, 0.75);
+    --border-light: rgba(255, 255, 255, 0.15);
+    --overlay-dark: rgba(0, 0, 0, 0.45);
+    --navbar-height: 100px;
+    --navbar-scrolled-height: 75px;
+    --font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    background-color: var(--bg-black);
+}
+
+body {
+    background-color: var(--bg-black);
+    color: var(--text-white);
+    font-family: var(--font-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    line-height: 1.5;
+}
+
+/* Prevent scroll when menu or modal is open */
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   2. Fixed Header & Navigation Bar
+   -------------------------------------------------------------------------- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--navbar-height);
+    z-index: 100;
+    transition: background-color 0.4s ease, backdrop-filter 0.4s ease, height 0.4s ease, border-bottom 0.4s ease;
+    background-color: transparent;
+}
+
+/* Scrolled state with glassmorphism backdrop */
+.navbar.scrolled {
+    height: var(--navbar-scrolled-height);
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.navbar-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+    position: relative;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    z-index: 102;
+}
+
+.logo a {
+    display: block;
+    line-height: 0;
+}
+
+.logo img {
+    width: 180px;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.logo img:hover {
+    opacity: 0.85;
+}
+
+/* Desktop Navigation Links */
+.desktop-nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-link {
+    color: var(--text-white);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    position: relative;
+    padding: 6px 0;
+    transition: color 0.3s ease;
+}
+
+/* Animated hover underline */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 1.5px;
+    background-color: var(--text-white);
+    transition: width 0.3s var(--transition-smooth);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* Menu Toggle Button (Desktop & Mobile) */
+.menu-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    border: none;
+    color: var(--text-white);
+    font-family: var(--font-primary);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: opacity 0.3s ease;
+    z-index: 102;
+}
+
+.menu-toggle:hover {
+    opacity: 0.75;
+}
+
+/* Hamburger Icon */
+.hamburger {
+    width: 18px;
+    height: 14px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hamburger .bar {
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-white);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Animate hamburger to X when active */
+.menu-toggle.active .bar-1 {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.menu-toggle.active .bar-2 {
+    opacity: 0;
+}
+
+.menu-toggle.active .bar-3 {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+
+/* --------------------------------------------------------------------------
+   3. Side Slide-Out Menu Drawer & Backdrop
+   -------------------------------------------------------------------------- */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -380px;
+    width: 360px;
+    max-width: 88vw;
+    height: 100vh;
+    background-color: #070707;
+    border-left: 1px solid var(--border-light);
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px 35px 35px 35px;
+    transition: right 0.45s var(--transition-smooth);
+    box-shadow: -15px 0 45px rgba(0, 0, 0, 0.9);
+}
+
+.side-menu.active {
+    right: 0;
+}
+
+.side-menu-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 25px;
+}
+
+.close-menu-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-white);
+    font-size: 32px;
+    font-weight: 300;
+    cursor: pointer;
+    line-height: 1;
+    padding: 5px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.close-menu-btn:hover {
+    transform: rotate(90deg);
+    opacity: 0.75;
+}
+
+.side-nav {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.side-nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.side-link {
+    color: var(--text-white);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 6px 0;
+    position: relative;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.side-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 1.5px;
+    background-color: var(--text-white);
+    transition: width 0.3s ease;
+}
+
+.side-link:hover {
+    transform: translateX(6px);
+}
+
+.side-link:hover::after {
+    width: 100%;
+}
+
+.side-menu-footer {
+    padding-top: 25px;
+    border-top: 1px solid var(--border-light);
+}
+
+.side-disclaimer {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+}
+
+/* Hide mobile-only links on desktop */
+.side-nav-links .mobile-only {
+    display: none;
+}
+
+/* Dimming Backdrop Overlay */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+/* --------------------------------------------------------------------------
+   4. Fullscreen Sections Layout
+   -------------------------------------------------------------------------- */
+.section {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 0 6vw 90px 7vw;
+    overflow: hidden;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: var(--bg-black);
+}
+
+/* Dark Gradient Vignette Overlay */
+.section-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0.15) 45%,
+        rgba(0, 0, 0, 0.8) 100%
+    );
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Background video for Starship Hero */
+.hero-section {
+    background-color: var(--bg-black);
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Section Background Images (Cascading with JPG and fallback SVG) */
+.section-falcon9 {
+    background-image: 
+        linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.75) 100%),
+        url('../images/falcon-9.jpg'),
+        url('../images/falcon-9.svg');
+}
+
+.section-falcon-heavy {
+    background-image: 
+        linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.75) 100%),
+        url('../images/falcon-heavy.jpg'),
+        url('../images/falcon-heavy.svg');
+}
+
+.section-dragon {
+    background-image: 
+        linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.75) 100%),
+        url('../images/dragon.jpg'),
+        url('../images/dragon.svg');
+}
+
+.section-human-spaceflight {
+    background-image: 
+        linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.75) 100%),
+        url('../images/human-spaceflight.jpg'),
+        url('../images/human-spaceflight.svg');
+}
+
+.section-starlink {
+    background-image: 
+        linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.75) 100%),
+        url('../images/starlink.jpg'),
+        url('../images/starlink.svg');
+}
+
+
+/* --------------------------------------------------------------------------
+   5. Section Content & Typography
+   -------------------------------------------------------------------------- */
+.section-content {
+    position: relative;
+    z-index: 10;
+    max-width: 650px;
+    text-align: left;
+    
+    /* Scroll entrance animation initial state */
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s var(--transition-smooth), transform 1s var(--transition-smooth);
+    will-change: opacity, transform;
+}
+
+/* Active in-view state triggered by Intersection Observer */
+.section.in-view .section-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-tag {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.section-title {
+    font-size: clamp(2.5rem, 5.5vw, 4.4rem);
+    font-weight: 900;
+    letter-spacing: 1px;
+    line-height: 1.05;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    color: var(--text-white);
+}
+
+.section-desc {
+    font-size: clamp(14px, 1.4vw, 18px);
+    font-weight: 300;
+    letter-spacing: 1.8px;
+    line-height: 1.4;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 28px;
+}
+
+.button-wrapper {
+    display: inline-block;
+}
+
+
+/* --------------------------------------------------------------------------
+   6. SpaceX Style Explore Buttons
+   -------------------------------------------------------------------------- */
+.explore-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 48px;
+    border: 2px solid var(--text-white);
+    color: var(--text-white);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background-color: transparent;
+    cursor: pointer;
+    overflow: hidden;
+    transition: color 0.35s var(--transition-smooth), border-color 0.35s ease;
+}
+
+.btn-hover-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--text-white);
+    transform: translateY(102%);
+    transition: transform 0.35s var(--transition-smooth);
+    z-index: 1;
+}
+
+.btn-text {
+    position: relative;
+    z-index: 2;
+    transition: transform 0.25s ease;
+}
+
+.explore-btn:hover {
+    color: var(--bg-black);
+}
+
+.explore-btn:hover .btn-hover-fill {
+    transform: translateY(0);
+}
+
+.explore-btn:active {
+    transform: scale(0.98);
+}
+
+
+/* --------------------------------------------------------------------------
+   7. Bouncing Scroll Down Indicator
+   -------------------------------------------------------------------------- */
+.scroll-down-btn {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    color: var(--text-white);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    transition: opacity 0.3s ease;
+}
+
+.scroll-arrow {
+    width: 26px;
+    height: 26px;
+    animation: bounceDown 2s infinite ease-in-out;
+}
+
+.scroll-down-btn:hover {
+    opacity: 0.7;
+}
+
+@keyframes bounceDown {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(9px);
+    }
+    60% {
+        transform: translateY(4px);
+    }
+}
+
+
+/* --------------------------------------------------------------------------
+   8. Footer Styling
+   -------------------------------------------------------------------------- */
+.footer {
+    width: 100%;
+    background-color: var(--bg-black);
+    border-top: 1px solid var(--border-light);
+    padding: 50px 30px 40px 30px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    text-align: center;
+}
+
+.footer-logo-img {
+    width: 150px;
+    height: auto;
+    opacity: 0.8;
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px 30px;
+}
+
+.copyright {
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.footer-link {
+    color: var(--text-white);
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 2px;
+    transition: color 0.3s ease;
+}
+
+.footer-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--text-white);
+    transition: width 0.3s ease;
+}
+
+.footer-link:hover::after {
+    width: 100%;
+}
+
+.footer-disclaimer {
+    max-width: 700px;
+    margin-top: 10px;
+}
+
+.footer-disclaimer p {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.45);
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+}
+
+
+/* --------------------------------------------------------------------------
+   9. Interactive Technical Specifications Modal
+   -------------------------------------------------------------------------- */
+.specs-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+}
+
+.specs-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.specs-modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.specs-modal-content {
+    position: relative;
+    background-color: #0b0c10;
+    border: 1px solid var(--border-light);
+    max-width: 680px;
+    width: 100%;
+    padding: 40px;
+    border-radius: 4px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95);
+    z-index: 10;
+    transform: scale(0.94);
+    transition: transform 0.35s var(--transition-smooth);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.specs-modal.active .specs-modal-content {
+    transform: scale(1);
+}
+
+.specs-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    background: transparent;
+    border: none;
+    color: var(--text-white);
+    font-size: 32px;
+    font-weight: 300;
+    cursor: pointer;
+    line-height: 1;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.specs-modal-close:hover {
+    transform: rotate(90deg);
+    opacity: 0.75;
+}
+
+.specs-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.specs-title {
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.specs-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px 24px;
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+    padding: 24px 0;
+    margin-bottom: 25px;
+}
+
+.spec-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.spec-label {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.spec-value {
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--text-white);
+}
+
+.specs-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-close-modal {
+    padding: 12px 28px;
+    border: 1px solid var(--border-light);
+    background: transparent;
+    color: var(--text-white);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-close-modal:hover {
+    background-color: var(--text-white);
+    color: var(--bg-black);
+}
+
+
+/* --------------------------------------------------------------------------
+   10. Responsive Design & Media Queries
+   -------------------------------------------------------------------------- */
+
+/* Tablet and below (<= 1024px) */
+@media screen and (max-width: 1024px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .side-nav-links .mobile-only {
+        display: block;
+    }
+
+    .navbar-container {
+        padding: 0 35px;
+    }
+
+    .section {
+        padding: 0 5vw 80px 6vw;
+    }
+}
+
+/* Mobile Devices (<= 768px) */
+@media screen and (max-width: 768px) {
+    :root {
+        --navbar-height: 80px;
+        --navbar-scrolled-height: 65px;
+    }
+
+    .navbar-container {
+        padding: 0 20px;
+    }
+
+    .logo img {
+        width: 140px;
+    }
+
+    .section {
+        padding: 0 24px 60px 24px;
+        justify-content: flex-start;
+    }
+
+    .section-content {
+        max-width: 100%;
+    }
+
+    .explore-btn {
+        width: 100%;
+        max-width: 320px;
+        padding: 14px 24px;
+        text-align: center;
+    }
+
+    .specs-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .specs-modal-content {
+        padding: 30px 20px;
+    }
+
+    .footer {
+        padding: 40px 20px 30px 20px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+/* Small mobile devices (<= 480px) */
+@media screen and (max-width: 480px) {
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    .section-desc {
+        font-size: 13px;
+        letter-spacing: 1.2px;
+    }
+
+    .side-menu {
+        width: 100%;
+        max-width: 100vw;
+    }
+}

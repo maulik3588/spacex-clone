@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <defs>
+    <!-- Deep Space Gradient -->
+    <radialGradient id="spaceBg" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#050811"/>
+      <stop offset="60%" stop-color="#020306"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+
+    <!-- Earth Atmosphere Limb Glow -->
+    <radialGradient id="earthLimb" cx="50%" cy="140%" r="90%">
+      <stop offset="0%" stop-color="#0b3866"/>
+      <stop offset="45%" stop-color="#0077b6"/>
+      <stop offset="58%" stop-color="#48cae4"/>
+      <stop offset="63%" stop-color="#90e0ef"/>
+      <stop offset="67%" stop-color="rgba(144, 224, 239, 0.4)"/>
+      <stop offset="72%" stop-color="rgba(72, 202, 228, 0.08)"/>
+      <stop offset="85%" stop-color="rgba(0, 0, 0, 0)"/>
+    </radialGradient>
+
+    <!-- Dragon Capsule Shading -->
+    <linearGradient id="capsuleWhite" x1="0%" y1="0%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="40%" stop-color="#edf2f7"/>
+      <stop offset="75%" stop-color="#cbd5e1"/>
+      <stop offset="100%" stop-color="#475569"/>
+    </linearGradient>
+
+    <linearGradient id="solarTrunk" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+
+    <!-- Sun Sunlight Flare -->
+    <radialGradient id="sunGlow" cx="20%" cy="20%" r="40%">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.35)"/>
+      <stop offset="50%" stop-color="rgba(255, 255, 255, 0.05)"/>
+      <stop offset="100%" stop-color="rgba(0, 0, 0, 0)"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Deep Cosmic Blackness -->
+  <rect width="1920" height="1080" fill="url(#spaceBg)"/>
+
+  <!-- Stars in Orbit -->
+  <g fill="#ffffff">
+    <circle cx="180" cy="110" r="1.5" opacity="0.8"/>
+    <circle cx="360" cy="220" r="1.2" opacity="0.6"/>
+    <circle cx="510" cy="90" r="2" opacity="0.9"/>
+    <circle cx="720" cy="180" r="1" opacity="0.5"/>
+    <circle cx="950" cy="80" r="1.8" opacity="0.7"/>
+    <circle cx="1180" cy="210" r="1" opacity="0.4"/>
+    <circle cx="1390" cy="130" r="2.2" opacity="0.85"/>
+    <circle cx="1620" cy="70" r="1.5" opacity="0.6"/>
+    <circle cx="1810" cy="190" r="1.8" opacity="0.75"/>
+    <circle cx="280" cy="380" r="1" opacity="0.5"/>
+    <circle cx="1710" cy="340" r="1.2" opacity="0.5"/>
+  </g>
+
+  <!-- Giant Blue Curved Earth Horizon Below -->
+  <ellipse cx="960" cy="1400" rx="1400" ry="700" fill="#031127"/>
+  <ellipse cx="960" cy="1400" rx="1400" ry="700" fill="url(#earthLimb)"/>
+
+  <!-- Earth Cloud Swirls in Silhouette -->
+  <path d="M400,880 C600,850 800,890 1100,860 C1300,840 1500,870 1700,890" stroke="rgba(255, 255, 255, 0.15)" stroke-width="12" fill="none" opacity="0.5"/>
+  <path d="M200,940 C500,910 900,930 1300,900 C1550,880 1800,920 1900,930" stroke="rgba(255, 255, 255, 0.2)" stroke-width="18" fill="none" opacity="0.4"/>
+
+  <!-- Sunlight Glint -->
+  <circle cx="450" cy="350" r="400" fill="url(#sunGlow)"/>
+
+  <!-- Crew Dragon Spacecraft (In Orbit Angle) -->
+  <g transform="translate(1020, 480) rotate(-18) scale(1.15)">
+    <!-- Dragon Trunk (Service Module & Solar Array) -->
+    <polygon points="-75,60 75,60 90,210 -90,210" fill="url(#solarTrunk)" stroke="#334155" stroke-width="1.5"/>
+    <!-- Solar cell grid textures on trunk -->
+    <line x1="-80" y1="100" x2="80" y2="100" stroke="#1e293b" stroke-width="2"/>
+    <line x1="-84" y1="140" x2="84" y2="140" stroke="#1e293b" stroke-width="2"/>
+    <line x1="-87" y1="180" x2="87" y2="180" stroke="#1e293b" stroke-width="2"/>
+    <line x1="0" y1="60" x2="0" y2="210" stroke="#1e293b" stroke-width="2"/>
+
+    <!-- Trunk Aerodynamic Stabilization Fins -->
+    <polygon points="-90,140 -125,210 -90,210" fill="#0f172a"/>
+    <polygon points="90,140 125,210 90,210" fill="#0f172a"/>
+
+    <!-- Heat Shield Division Line -->
+    <ellipse cx="0" cy="60" rx="75" ry="8" fill="#1e293b"/>
+
+    <!-- Capsule Main Cone Body -->
+    <path d="M-75,60 C-65,-30 -45,-90 0,-130 C45,-90 65,-30 75,60 Z" fill="url(#capsuleWhite)"/>
+
+    <!-- Dragon Nose Cone (Open Docking Position or Hinged) -->
+    <path d="M-22,-130 C-22,-165 0,-175 0,-175 C0,-175 22,-165 22,-130 Z" fill="#94a3b8" stroke="#475569" stroke-width="1"/>
+    <!-- Docking Ring -->
+    <ellipse cx="0" cy="-130" rx="22" ry="7" fill="#334155" stroke="#cbd5e1" stroke-width="1.5"/>
+
+    <!-- Draco Thruster Pods (SuperDraco Emergency Abort / Attitude Control) -->
+    <path d="M-55,-15 L-66,-10 L-68,15 L-54,18 Z" fill="#1e293b"/>
+    <path d="M55,-15 L66,-10 L68,15 L54,18 Z" fill="#1e293b"/>
+    <ellipse cx="-60" cy="5" rx="3" ry="5" fill="#090d16"/>
+    <ellipse cx="60" cy="5" rx="3" ry="5" fill="#090d16"/>
+
+    <!-- Crew Windows -->
+    <polygon points="-24,-35 -12,-40 -12,-25 -24,-22" fill="#020617" stroke="#64748b" stroke-width="1"/>
+    <polygon points="24,-35 12,-40 12,-25 24,-22" fill="#020617" stroke="#64748b" stroke-width="1"/>
+    <ellipse cx="0" cy="-60" rx="6" ry="6" fill="#020617" stroke="#64748b" stroke-width="1"/>
+
+    <!-- SpaceX Falcon / Dragon Stencil Accents -->
+    <path d="M-10,15 L10,15" stroke="#475569" stroke-width="2"/>
+    <line x1="-3" y1="10" x2="3" y2="20" stroke="#000000" stroke-width="1.5"/>
+  </g>
+</svg>
